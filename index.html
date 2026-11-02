@@ -34,8 +34,22 @@
   <p>Um mês depois, Sérgio voltou ao palco. O resultado está na matéria completa.</p>
 
   <div class="cta">
-    <a href="https://portalgum.site/historias-de-familia-mau-halito/?src=presell-sites&tk_conta=google-3" target="_blank" rel="noopener">LER MATÉRIA</a>
+    <a href="https://portalgum.site/historias-de-familia-mau-halito/?tk_conta=google-3" target="_blank" rel="noopener">LER MATÉRIA</a>
   </div>
 </div>
+<script>
+// Leva para o botão tudo que veio no endereço desta página (gclid, tk_campanha, tk_grupo, tk_anuncio).
+(function () {
+  var veio = new URLSearchParams(window.location.search);
+  var botoes = document.querySelectorAll('.cta a');
+  for (var i = 0; i < botoes.length; i++) {
+    var destino = new URL(botoes[i].href);
+    veio.forEach(function (valor, nome) {
+      destino.searchParams.set(nome, valor);
+    });
+    botoes[i].href = destino.toString();
+  }
+})();
+</script>
 </body>
 </html>
